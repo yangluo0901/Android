@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager =  getFragmentManager();
         FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container,fragment);
+        fragmentTransaction.commit(); // to commit transaction!!!!!!!!!!!!!!!
         setContentView(R.layout.activity_main);
         Button btn =  findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {

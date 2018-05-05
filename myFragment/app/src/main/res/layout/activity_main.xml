@@ -21,22 +21,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/top_fragment" />
-    <FragmentLayout
+
+    <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-
-        />
+        app:layout_constraintTop_toBottomOf="@+id/fragment5"></FrameLayout>
 
     <fragment
         android:id="@+id/fragment6"
         android:name="com.example.yluo.myfragment.Bottom_Fragment"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
