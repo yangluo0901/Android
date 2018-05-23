@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Top_Fragment.TopFragmentInterface {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {// attached fragments to activity, at this time onattach() will be called
         super.onCreate(savedInstanceState);
         Fragment fragment =  new Middle_Fragment();
         FragmentManager fragmentManager =  getFragmentManager();
@@ -20,19 +20,17 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.fragment_container,fragment);
         fragmentTransaction.commit(); // to commit transaction!!!!!!!!!!!!!!!
         setContentView(R.layout.activity_main);
-        Button btn =  findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditText top_text1 =  findViewById(R.id.top_text1);
-                EditText top_text2 =  findViewById(R.id.top_text2);
-                EditText bottom_text1 =  findViewById(R.id.bottom_text1);
-                EditText bottom_text2 =  findViewById(R.id.bottom_text2);
-                String ttext1 =  top_text1.getText().toString();
-                String ttext2 =  top_text2.getText().toString();
-                bottom_text1.setText(ttext1);
-                bottom_text2.setText(ttext2);
-            }
-        });
+
+    }
+
+    @Override
+    public void display(String text1, String text2) {
+        Bottom_Fragment bottom_fragment = (Bottom_Fragment)getFragmentManager().findFragmentById(R.id.fragment6);
+        bottom_fragment.setText(text1,text2);
     }
 }
+//ANALYSIS:
+
+//1. create a method inside bottom fragment, setText(text1,text2), to enable mainactivity have access to set text;
+//2. when top fragment and bottom fragment attach to the main_activity, onAttach() will call a method display(top_text1, top_text2) inside main_activity. The information of top text would be passed along
+//3. In order to call main_activity.display(...), we need a main_activity reference inside top fragment, so we create a topFragmentInterface that mian_activity can implements,and  cast main_activty into topFragmentInterface.

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         //define button's layout params
         RelativeLayout.LayoutParams button_layoutpara =  new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT //WRAP_CONTENT, MATCH_PARENT  are contants from View.LayoutParams
+                RelativeLayout.LayoutParams.WRAP_CONTENT //WRAP_CONTENT, MATCH_PARENT  are constants from View.LayoutParams
         );
         // add more rules to button_layoutpara
         button_layoutpara.addRule(RelativeLayout.CENTER_IN_PARENT);
